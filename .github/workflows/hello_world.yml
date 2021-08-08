@@ -51,7 +51,6 @@ jobs:
           aws_region: us-east-2
     
     #Deploy main.py to AWS
-      
       - name: Deploy code to Lambda
         uses: appleboy/lambda-action@v0.0.4
         with:
