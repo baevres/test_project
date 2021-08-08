@@ -45,7 +45,7 @@ jobs:
     #Deploy main.py to AWS
       
       - name: Deploy code to Lambda
-        uses: baevres/hello_world_python3_test@v1.0
+        uses: appleboy/lambda-action@master
         with:
           lambda_layer_arn: 'arn:aws:lambda:us-east-2:818687204706:function:hello_world_python3_test'
           lambda_function_name: 'hello_world_python3_test'
