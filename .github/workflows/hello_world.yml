@@ -45,7 +45,9 @@ jobs:
     #Deploy main.py to AWS
       
       - name: Deploy code to Lambda
-        uses: appleboy/lambda-action@master
+        uses: |
+          aws-actions/configure-aws-credentials@v1
+          appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
