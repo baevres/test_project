@@ -31,8 +31,27 @@ jobs:
         with:
           python-version: '3.8'
           architecture: 'x64'
-
+          
+      - name: Configure AWS credentials from Production account
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+          profile_name: baevres
+          project_name: test_project
+          runtime: python3.8
+          s3_bucket: hello_wordl
+          
       # Runs a set of commands using the runners shell
       - name: Run main script
         run: |
           python hello_world.py
+          
+      - name: AWS Lambda Deploy
+        uses: appleboy/lambda-action@v0.0.4
+        with:
+            #name of my AWS Lambda Function
+            function_name: hello_world_python3_test
+            #contains all the files in my github repository
+            zip_file: test_project.zip
