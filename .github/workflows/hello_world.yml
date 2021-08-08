@@ -41,7 +41,7 @@ jobs:
       - name: Run a multi-line script
         run: |
          zip -r main.zip .
-         export PATH=$PATH:$(pwd)
+         
          
       - name: Configure AWS credentials from Production account
         uses: aws-actions/configure-aws-credentials@v1
