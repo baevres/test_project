@@ -41,12 +41,12 @@ jobs:
       - name: Run a multi-line script
         run: |
          zip -r main.zip .
+         export PATH=$PATH:$(pwd)
     
     #Deploy main.py to AWS
       
       - name: Deploy code to Lambda
-        uses: |
-          appleboy/lambda-action@master
+        uses: appleboy/lambda-action@v0.0.4
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
