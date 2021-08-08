@@ -42,14 +42,18 @@ jobs:
         run: |
          zip -r main.zip .
          export PATH=$PATH:$(pwd)
+         
+      - name: Configure AWS credentials from Production account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
     #Deploy main.py to AWS
       
       - name: Deploy code to Lambda
         uses: appleboy/lambda-action@v0.0.4
         with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           zip_file: main.zip
           function_name: 'my_func'
-          role: 'arn:aws:lambda:us-east-2:818687204706:function:my_func'
+        
