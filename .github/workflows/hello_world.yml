@@ -34,4 +34,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run main script
-        run: coverage run hello_world.py
+        run: run hello_world.py
