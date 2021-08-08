@@ -41,8 +41,6 @@ jobs:
       - name: Run a multi-line script
         run: |
          zip -r test-dep-dev.zip .
-   
-         export PATH=$PATH:$(pwd)
     
     #Deploy main.py to AWS
       
