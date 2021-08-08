@@ -46,7 +46,7 @@ jobs:
       
       - name: Deploy code to Lambda
         uses: |
-          aws-actions/configure-aws-credentials@v1
+          unfor19/install-aws-cli-action@v1
           appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
