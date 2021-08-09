@@ -46,6 +46,7 @@ jobs:
         
       - name: Deploy
         run: |
+          npx ncc build index.py
           zip -r deploy.zip .
           aws lambda update-function-code --function-name=my_func --zip-file=fileb://deploy.zip
           
