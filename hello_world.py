@@ -1,8 +1,7 @@
 import json
 
 def lambda_handler(event, context):
-    some_text = 'Hello World!'
-    print(event, context)
+    some_text = 'Hello Vasya!'
     json_mylist = json.dumps(some_text, separators=(',', ':'))
     
     return {
