@@ -34,8 +34,20 @@ jobs:
         
           
       # Runs a set of commands using the runners shell
-      - name: Run main script
-        run: python hello_world.py
+#       - name: Run main script
+#         run: python hello_world.py
+        
+      - name: Configure AWS credentials from Production account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+        
+      - name: Deploy
+        run: |
+          zip -r deploy.zip .
+          aws lambda update-function-code --function-name=my_func --zip-file=fileb://deploy.zip
           
       
         
