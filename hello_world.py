@@ -19,8 +19,8 @@ def circle(event=None, context=None):
 
     req = requests.get(url).json()['records']
     l = len(req) - 1 # for iteration
-
-    while True:
+    i = 0
+    while i <= 10:
         """
         circle will be infinity, but every iteration have interval in 1 sec
         """
@@ -48,6 +48,7 @@ def circle(event=None, context=None):
                     print(f"ID - {req[x]['fields']['ID']},", req[n]['fields']['title'])
                 time.sleep(1)
                 print()
+                i += 1
 
 
 circle()
