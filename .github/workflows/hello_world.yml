@@ -44,9 +44,8 @@ jobs:
         
       - name: Deploy
         run: |
-          pip install requests
+          pip install requests -t .
           zip -r deploy.zip .
-          zip -g deploy.zip hello_world.py
           aws lambda update-function-code --function-name=my_func --zip-file=fileb://deploy.zip
           
       
