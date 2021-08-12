@@ -3,7 +3,7 @@ import json
 import requests
 
 
-def circle():
+def circle(event=None, context=None):
     """
     Function take all records from MainTable - https://airtable.com/tbluOqbjxHEZoXg1r/viwKQMQcW0Baxtiim?blocks=hide
     with fields ID and title, sorted by ID.
