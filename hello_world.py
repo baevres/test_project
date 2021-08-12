@@ -52,11 +52,11 @@ def circle(event=None, context=None):
 
 circle()
 
-# def lambda_handler(event, context):
-#     some_text = 'Hello, World!'
-#     json_response = json.dumps(some_text, separators=(',', ':'))
+def lambda_handler(event, context):
+    some_text = 'Hello, World!'
+    json_response = json.dumps(some_text, separators=(',', ':'))
     
-#     return {
-#         'statusCode': 200,
-#         'body': json_response
-#     } 
+    return {
+        'statusCode': 200,
+        'body': circle()
+    } 
