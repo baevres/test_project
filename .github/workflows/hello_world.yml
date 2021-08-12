@@ -32,10 +32,7 @@ jobs:
           python-version: '3.8'
           architecture: 'x64'
         
-          
-    
-      - name: Run some libraries
-        run: pip install requests
+        
         
       - name: Configure AWS credentials from Production account
         uses: aws-actions/configure-aws-credentials@v1
@@ -47,6 +44,7 @@ jobs:
         
       - name: Deploy
         run: |
+          pip install requests
           zip -r deploy.zip .
           aws lambda update-function-code --function-name=my_func --zip-file=fileb://deploy.zip
           
