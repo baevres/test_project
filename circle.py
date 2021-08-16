@@ -58,8 +58,8 @@ def lambda_handler(event=None, context=None):
             now -= lngth
             continue
         break
-        
+    response = json.dumps(lst[now], ensure_ascii=False, separators=(',', ': '))
     return {
         'status': 200,
-        'body': lst[now]
+        'body': response
     }
